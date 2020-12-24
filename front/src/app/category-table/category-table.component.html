@@ -1,0 +1,26 @@
+<h4 *ngIf="this.data == undefined && this.errorMessage == undefined">Loading...</h4>
+<h2 *ngIf="this.errorMessage != undefined">{{this.errorMessage}}</h2>
+<ul *ngIf="this.data != undefined">
+	Updated {{lastUpdated | date:"medium"}}
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Price</th>
+			<th>Color</th>
+			<th>Manufacturer</th>
+			<th>Stock</th>
+		</tr>
+
+		<tr *ngFor="let product of this.data;">
+			<td>{{product.id}}</td>
+			<td>{{product.name}}</td>
+			<td>{{product.type}}</td>
+			<td>{{product.price}}</td>
+			<td>{{product.color.join(",")}}</td>
+			<td>{{product.manufacturer}}</td>
+			<td>{{product.stock || "?"}}</td>
+		</tr>
+	</table>
+</ul>

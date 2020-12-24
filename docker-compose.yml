@@ -1,0 +1,18 @@
+version: "3.4"
+services:
+  back:
+    build:
+      context: .
+      target: back
+    ports:
+      - "3000:3000"
+  serve:
+    build:
+      context: .
+      target: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - back
+    expose:
+      - "80"

@@ -1,0 +1,7 @@
+<span>Displaying</span>
+<select name="category" (change)="this.category = $event.target.value">
+	<option value="beanies">Beanies</option>
+	<option value="facemasks">Facemasks</option>
+	<option value="gloves">Gloves</option>
+</select>
+<app-category-table [category]=category></app-category-table>
